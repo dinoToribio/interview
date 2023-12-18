@@ -7,11 +7,14 @@ final GoRouter appRouter = GoRouter(
   routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => HomePage(),
+      builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      path: "/groups/:id",
-      builder: (context, state) => GroupPage(state.pathParameters["id"]!),
+      path: "/groups/:id/:name",
+      builder: (context, state) => GroupPage(
+        state.pathParameters["id"]!,
+        state.pathParameters["name"]!,
+      ),
     ),
   ],
 );
